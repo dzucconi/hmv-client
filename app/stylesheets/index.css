@@ -1,0 +1,41 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  font-size: 42px;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.app,
+.stage {
+  width: 100%;
+  height: 100%;
+}
+
+.app {
+  display: table;
+}
+
+.stage {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 1em;
+}
