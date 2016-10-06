@@ -20,6 +20,8 @@ const DOM = {
 export default () => {
   if (!PARAMS.message) return;
 
+  DOM.stage.innerHTML = 'Rendering'
+
   fetch
     .get(`${CONFIG.api.base}/render.json?text=${PARAMS.message}`)
     .then(({ data }) => {
