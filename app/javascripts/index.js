@@ -1,4 +1,5 @@
-import axios from 'axios';
+import fetch from 'axios';
+import { Howl } from 'howler';
 import params from './lib/params';
 import animate from './lib/animate';
 
@@ -6,7 +7,7 @@ const CONFIG = {
   api: {
     base: 'http://hmv.work.damonzucconi.com'
   },
-  message: 'Hello world',
+  message: null,
   speed: 1000,
 };
 
@@ -17,15 +18,27 @@ const DOM = {
 };
 
 export default () => {
-  axios
+  if (!PARAMS.message) return;
+
+  fetch
     .get(`${CONFIG.api.base}/render.json?text=${PARAMS.message}`)
     .then(({ data }) => {
+      const play = sound =>
+        animate(data)
+          .run({
+            step: (frame, next) => {
+              DOM.stage.innerHTML = frame.word;
+              setTimeout(next, frame.duration * 1000);
+            },
+            cycle: () => {
+              sound.play();
+            }
+          });
 
-      animate(data)
-        .run((frame, next) => {
-          DOM.stage.innerHTML = frame.word;
-          setTimeout(next, frame.duration * 1000);
-        });
-
+      const sound = new Howl({
+        src: [`${CONFIG.api.base}/render.wav?text=${PARAMS.message}`],
+        format: ['wav'],
+        onload: () => play(sound),
+      });
     });
 };
