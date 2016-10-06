@@ -4,8 +4,13 @@ export default frames => {
   let n = -1;
 
   const r = {
-    run: fn =>
-      fn(r.step(), () => r.run(fn)),
+    run: (each, start, end) => {
+      if (n === 0) start();
+      if (n === frames.length - 1) end();
+      each(r.step(), () => {
+        r.run(each, start, end);
+      });
+    },
 
     step: () =>
       frames[n = over(n, frames.length)],

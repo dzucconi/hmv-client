@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.14.0",
+    "howler": "^2.0.0",
     "object-assign": "^4.1.0",
     "qs": "^6.2.1"
   },
