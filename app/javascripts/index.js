@@ -1,46 +1,47 @@
+import parameters from 'queryparams';
 import fetch from 'axios';
-import { Howl } from 'howler';
-import params from './lib/params';
-import animate from './lib/animate';
+import { api } from './config';
+import Player from './lib/player';
 
-const CONFIG = {
-  api: {
-    base: 'http://hmv.work.damonzucconi.com'
-  },
-  message: null,
-  speed: 1000,
-};
+window.parameters = parameters;
 
-const PARAMS = params(CONFIG);
+const PARAMS = parameters({
+  message: ''
+});
 
 const DOM = {
   stage: document.getElementById('stage'),
+  notifications: document.getElementById('notifications'),
 };
 
 export default () => {
-  if (!PARAMS.message) return;
+  if (!PARAMS.message) {
+    DOM.stage.innerHTML = `
+      <form>
+        <input name='message' autofocus>
+      </form>
+    `;
 
-  DOM.stage.innerHTML = 'Rendering'
+    return;
+  }
+
+  DOM.stage.innerHTML = 'Rendering';
 
   fetch
-    .get(`${CONFIG.api.base}/render.json?text=${PARAMS.message}`)
+    .get(`${api.base}/${api.endpoint}.json?text=${PARAMS.message}`)
     .then(({ data }) => {
-      const play = sound =>
-        animate(data)
-          .run({
-            step: (frame, next) => {
-              DOM.stage.innerHTML = frame.word;
-              setTimeout(next, frame.duration * 1000);
-            },
-            cycle: () => {
-              sound.play();
-            }
-          });
 
-      const sound = new Howl({
-        src: [`${CONFIG.api.base}/render.wav?text=${PARAMS.message}`],
-        format: ['wav'],
-        onload: () => play(sound),
+      const player = new Player({
+        el: DOM.stage,
+        frames: data,
+        message: PARAMS.message,
       });
+
+      player.play();
+
+      // DOM.stage.addEventListener('click', e => {
+      //   e.preventDefault();
+      //   player.toggle();
+      // });
     });
 };

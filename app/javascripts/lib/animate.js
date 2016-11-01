@@ -1,11 +1,11 @@
-const over = (i, limit) => i + 1 < limit ? i + 1 : 0;
+import step from './step';
 
 export default frames => {
-  let n = -1;
-
   const r = {
+    frame: -1,
+
     run: ({ step, cycle }) => {
-      if (n === -1 || n === frames.length - 1) cycle();
+      if (r.frame === -1 || r.frame === frames.length - 1) cycle();
 
       step(r.step(), () => {
         r.run({ step, cycle });
@@ -13,7 +13,10 @@ export default frames => {
     },
 
     step: () =>
-      frames[n = over(n, frames.length)],
+      frames[r.frame = step(r.frame, frames.length)],
+
+    reset: () =>
+      r.frame = -1,
   };
 
   return r;

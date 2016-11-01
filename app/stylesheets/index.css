@@ -8,20 +8,32 @@ html {
   box-sizing: inherit;
 }
 
-body {
+body,
+input {
   background-color: black;
   color: white;
   text-transform: uppercase;
-  font-size: 42px;
+  font-size: 60px;
   font-family: 'unionregular', serif;
-  letter-spacing: 1px;
+  letter-spacing: 0.0625em;
   -webkit-font-smoothing: antialiased;
 }
 
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
+
+input {
+  -webkit-appearance: none;
+  border: none;
+  border-bottom: 0.0625em solid white;
+}
+  input:focus {
+    outline: none;
+  }
 
 .app,
 .stage {
@@ -38,4 +50,14 @@ body {
   vertical-align: middle;
   text-align: center;
   padding: 1em;
+  cursor: default;
+  user-select: none;
+}
+
+.notifications {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  font-size: 75%;
 }
