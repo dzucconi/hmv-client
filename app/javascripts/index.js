@@ -30,7 +30,6 @@ export default () => {
   fetch
     .get(`${api.base}/${api.endpoint}.json?text=${PARAMS.message}`)
     .then(({ data }) => {
-
       const player = new Player({
         el: DOM.stage,
         frames: data,
@@ -39,9 +38,11 @@ export default () => {
 
       player.play();
 
-      // DOM.stage.addEventListener('click', e => {
-      //   e.preventDefault();
-      //   player.toggle();
-      // });
+      window.addEventListener('blur', () => {
+        player.stop();
+        DOM.stage.innerHTML = `
+          <a onclick='window.location.reload()'>Play</a>
+        `;
+      });
     });
 };
