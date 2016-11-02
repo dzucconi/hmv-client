@@ -29,7 +29,8 @@ body {
 input {
   -webkit-appearance: none;
   border: none;
-  border-bottom: 0.0625em solid white;
+  border: 0.0625em solid white;
+  text-align: center;
 }
   input:focus {
     outline: none;
