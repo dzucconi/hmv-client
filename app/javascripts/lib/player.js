@@ -1,6 +1,7 @@
 import { api } from '../config';
 import { Howl } from 'howler';
 import animate from './animate';
+import timeout from './timeout';
 
 export default class Player {
   constructor({ el, frames, message }) {
@@ -9,63 +10,48 @@ export default class Player {
     this.message = message;
     this.playing = false;
     this.animation = animate(frames);
-  }
 
-  sound() {
-    return this.__sound__ = this.__sound__ || new Howl({
+    this.timeline = [];
+    frames.reduce((memo, frame, i) => {
+      frame.start = memo += (frames[i - 1] || {}).duration || 0;
+      this.timeline.push(frame);
+      return memo;
+    }, 0);
+
+    this.sound = new Howl({
       preload: false,
       loop: false,
-      src: [`${api.base}/${api.endpoint}.wav?text=${this.message}`],
-      format: ['wav']
+      format: ['wav'],
+      src: [`${api.base}/${api.endpoint}.wav?text=${message}`],
     });
   }
 
   load() {
     return this.__loaded__ = this.__loaded__ || new Promise(resolve => {
-      this.sound().once('load', resolve);
-      this.sound().load();
+      this.sound.once('load', resolve);
+      this.sound.load();
     });
   }
 
   play() {
-    if (this.playing) return;
-
-    return this.load()
+    return this
+      .load()
       .then(() => {
-        this.playing = true;
+        this.sound.play();
 
-        this.animation
-          .run({
-            step: (frame, next) => {
-              if (!this.playing) return;
+        this.timeline.map((frame, i) => {
 
-              this.el.innerHTML = frame.word;
-              setTimeout(next, frame.duration * 1000);
-            },
-            cycle: () => {
-              this.sound().play();
+          timeout(() => {
+            this.el.innerHTML = frame.word;
+
+            if (this.timeline.length - 1 === i) {
+              timeout(() => {
+                this.play();
+              }, frame.duration * 1000);
             }
-          });
 
-        return this;
+          }, frame.start * 1000);
+        });
       });
-  }
-
-  stop() {
-    this.playing = false;
-    this.sound().stop();
-    this.animation.reset();
-    this.el.innerHTML = '';
-    return this;
-  }
-
-  toggle() {
-    if (this.playing) {
-      this.stop();
-      return this;
-    }
-
-    this.play();
-    return this;
   }
 }

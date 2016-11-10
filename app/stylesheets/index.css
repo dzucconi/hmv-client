@@ -62,3 +62,11 @@ input {
   padding: 1em;
   font-size: 75%;
 }
+
+.pause:after {
+  content: 'Paused';
+  cursor: pointer;
+}
+  .pause:hover:after {
+    content: 'Play';
+  }

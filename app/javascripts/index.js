@@ -5,7 +5,7 @@ import Player from './lib/player';
 
 window.parameters = parameters;
 
-const PARAMS = parameters({
+const { message } = parameters({
   message: ''
 });
 
@@ -14,8 +14,18 @@ const DOM = {
   notifications: document.getElementById('notifications'),
 };
 
+const init = frames => {
+  const player = new Player({
+    el: DOM.stage,
+    message,
+    frames,
+  });
+
+  player.play();
+};
+
 export default () => {
-  if (!PARAMS.message) {
+  if (!message) {
     DOM.stage.innerHTML = `
       <form>
         <input name='message' autofocus>
@@ -28,21 +38,7 @@ export default () => {
   DOM.stage.innerHTML = 'Rendering';
 
   fetch
-    .get(`${api.base}/${api.endpoint}.json?text=${PARAMS.message}`)
-    .then(({ data }) => {
-      const player = new Player({
-        el: DOM.stage,
-        frames: data,
-        message: PARAMS.message,
-      });
-
-      player.play();
-
-      window.addEventListener('blur', () => {
-        player.stop();
-        DOM.stage.innerHTML = `
-          <a onclick='window.location.reload()'>Play</a>
-        `;
-      });
-    });
+    .get(`${api.base}${api.endpoint}.json?text=${message}`)
+    .then(({ data }) =>
+      init(data));
 };
