@@ -5,10 +5,11 @@ import Player from './lib/player';
 
 window.parameters = parameters;
 
-const { message, scalar, shape } = parameters({
-  message: '',
-  scalar: 1.0,
+const params = parameters({
+  text: '',
   shape: 'sine',
+  scalar: 1.0,
+  octave: 3,
 });
 
 const DOM = {
@@ -17,22 +18,15 @@ const DOM = {
 };
 
 const init = frames => {
-  const player = new Player({
-    el: DOM.stage,
-    message,
-    frames,
-    scalar,
-    shape,
-  });
-
-  player.play();
+  new Player(DOM.stage, frames, params)
+    .play();
 };
 
 export default () => {
-  if (!message) {
+  if (!params.text) {
     DOM.stage.innerHTML = `
       <form>
-        <input name='message' autofocus>
+        <input name='text' autofocus>
       </form>
     `;
 
@@ -42,7 +36,7 @@ export default () => {
   DOM.stage.innerHTML = 'Rendering';
 
   fetch
-    .get(`${api.base}${api.endpoint}.json?text=${message}&shape=${shape}&scalar=${scalar}`)
+    .get(`${api.base}${api.endpoint}.json?${parameters.encode(params)}`)
     .then(({ data }) =>
       init(data));
 };

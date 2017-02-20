@@ -4,10 +4,9 @@ import animate from './animate';
 import timeout from './timeout';
 
 export default class Player {
-  constructor({ el, frames, message, scalar, shape }) {
+  constructor(el, frames, params) {
     this.el = el;
     this.frames = frames;
-    this.message = message;
     this.playing = false;
     this.animation = animate(frames);
 
@@ -22,7 +21,7 @@ export default class Player {
       preload: false,
       loop: false,
       format: ['wav'],
-      src: [`${api.base}/${api.endpoint}.wav?text=${message}&shape=${shape}&scalar=${scalar}`],
+      src: [`${api.base}/${api.endpoint}.wav?${window.parameters.encode(params)}`],
     });
   }
 
