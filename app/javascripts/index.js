@@ -5,8 +5,10 @@ import Player from './lib/player';
 
 window.parameters = parameters;
 
-const { message } = parameters({
-  message: ''
+const { message, scalar, shape } = parameters({
+  message: '',
+  scalar: 1.0,
+  shape: 'sine',
 });
 
 const DOM = {
@@ -19,6 +21,8 @@ const init = frames => {
     el: DOM.stage,
     message,
     frames,
+    scalar,
+    shape,
   });
 
   player.play();
@@ -38,7 +42,7 @@ export default () => {
   DOM.stage.innerHTML = 'Rendering';
 
   fetch
-    .get(`${api.base}${api.endpoint}.json?text=${message}`)
+    .get(`${api.base}${api.endpoint}.json?text=${message}&shape=${shape}&scalar=${scalar}`)
     .then(({ data }) =>
       init(data));
 };

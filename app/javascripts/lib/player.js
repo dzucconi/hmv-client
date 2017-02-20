@@ -4,7 +4,7 @@ import animate from './animate';
 import timeout from './timeout';
 
 export default class Player {
-  constructor({ el, frames, message }) {
+  constructor({ el, frames, message, scalar, shape }) {
     this.el = el;
     this.frames = frames;
     this.message = message;
@@ -22,7 +22,7 @@ export default class Player {
       preload: false,
       loop: false,
       format: ['wav'],
-      src: [`${api.base}/${api.endpoint}.wav?text=${message}`],
+      src: [`${api.base}/${api.endpoint}.wav?text=${message}&shape=${shape}&scalar=${scalar}`],
     });
   }
 
