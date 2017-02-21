@@ -37,6 +37,11 @@ export default () => {
 
   fetch
     .get(`${api.base}${api.endpoint}.json?${parameters.encode(params)}`)
-    .then(({ data }) =>
-      init(data));
+    .then(({ data }) => {
+      DOM.stage.innerHTML = 'Loading';
+      init(data)
+    })
+    .catch(e => {
+      DOM.stage.innerHTML = e;
+    });
 };
