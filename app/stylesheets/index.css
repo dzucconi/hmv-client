@@ -2,6 +2,11 @@ html {
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 *,
 *:before,
 *:after {
@@ -50,7 +55,7 @@ input {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-  padding: 1em;
+  padding: 3em;
   cursor: default;
   user-select: none;
 }

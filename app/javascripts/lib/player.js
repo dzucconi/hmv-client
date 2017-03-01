@@ -1,5 +1,6 @@
 import { api } from '../config';
 import { Howl } from 'howler';
+import textFit from 'textfit';
 import animate from './animate';
 import timeout from './timeout';
 
@@ -9,6 +10,7 @@ export default class Player {
     this.frames = frames;
     this.playing = false;
     this.animation = animate(frames);
+    this.fit = params.fit;
 
     this.timeline = [];
     frames.reduce((memo, frame, i) => {
@@ -42,6 +44,8 @@ export default class Player {
 
           timeout(() => {
             this.el.innerHTML = frame.word;
+
+            if (this.fit) textFit(this.el, { maxFontSize: 500 });
 
             if (this.timeline.length - 1 === i) {
               timeout(() => {
