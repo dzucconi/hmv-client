@@ -10,6 +10,7 @@ const params = parameters({
   shape: 'sine',
   scalar: 1.0,
   octave: 3,
+  // pause is implicit and does not define a default
 });
 
 const DOM = {
