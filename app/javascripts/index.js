@@ -12,6 +12,7 @@ const params = parameters({
   octave: 3,
   fit: false,
   // pause is implicit and does not define a default
+  // id is optional
 });
 
 const DOM = {
@@ -19,13 +20,8 @@ const DOM = {
   notifications: document.getElementById('notifications'),
 };
 
-const init = frames => {
-  new Player(DOM.stage, frames, params)
-    .play();
-};
-
 export default () => {
-  if (!params.text) {
+  if (!params.text && !params.id) {
     DOM.stage.innerHTML = `
       <form>
         <input name='text' autofocus>
@@ -37,13 +33,24 @@ export default () => {
 
   DOM.stage.innerHTML = 'Rendering';
 
-  fetch
-    .get(`${api.base}${api.endpoint}.json?${parameters.encode(params)}`)
-    .then(({ data }) => {
-      DOM.stage.innerHTML = 'Loading';
-      init(data);
-    })
-    .catch(e => {
-      DOM.stage.innerHTML = e;
-    });
+  if (params.id) {
+    fetch.get(`${api.base}/${params.id}`)
+      .then(({ data }) => {
+        DOM.stage.innerHTML = 'Loading';
+        new Player(DOM.stage, data.output, params, data.mp3).play();
+      })
+      .catch(e => {
+        DOM.stage.innerHTML = e;
+      });
+
+  } else {
+    fetch.get(`${api.base}${api.endpoint}.json?${parameters.encode(params)}`)
+      .then(({ data }) => {
+        DOM.stage.innerHTML = 'Loading';
+        new Player(DOM.stage, data, params).play();
+      })
+      .catch(e => {
+        DOM.stage.innerHTML = e;
+      });
+  }
 };

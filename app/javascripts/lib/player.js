@@ -5,7 +5,7 @@ import animate from './animate';
 import timeout from './timeout';
 
 export default class Player {
-  constructor(el, frames, params) {
+  constructor(el, frames, params, sound = null) {
     this.el = el;
     this.frames = frames;
     this.playing = false;
@@ -19,12 +19,21 @@ export default class Player {
       return memo;
     }, 0);
 
-    this.sound = new Howl({
-      preload: false,
-      loop: false,
-      format: ['wav'],
-      src: [`${api.base}/${api.endpoint}.wav?${window.parameters.encode(params)}`],
-    });
+    if (sound) {
+      this.sound = new Howl({
+        preload: false,
+        loop: false,
+        format: [sound.split('.').pop()],
+        src: [sound],
+      });
+    } else {
+      this.sound = new Howl({
+        preload: false,
+        loop: false,
+        format: ['wav'],
+        src: [`${api.base}/${api.endpoint}.wav?${window.parameters.encode(params)}`],
+      });
+    }
   }
 
   load() {
