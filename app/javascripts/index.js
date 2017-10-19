@@ -1,5 +1,6 @@
-import parameters from 'queryparams';
+import audiate from 'audiate';
 import fetch from 'axios';
+import parameters from 'queryparams';
 import { api } from './config';
 import Player from './lib/player';
 
@@ -11,14 +12,16 @@ const params = parameters({
   scalar: 1.0,
   octave: 3,
   fit: false,
-  // pause is implicit and does not define a default
-  // id is optional
+  // `pause` is implicit and does not define a default
+  // `id` is optional
 });
 
 const DOM = {
-  stage: document.getElementById('stage'),
-  notifications: document.getElementById('notifications'),
+  stage: document.getElementById('Stage'),
 };
+
+const render = x =>
+  DOM.stage.innerHTML = x;
 
 export default () => {
   if (!params.text && !params.id) {
@@ -31,26 +34,38 @@ export default () => {
     return;
   }
 
-  DOM.stage.innerHTML = 'Rendering';
+  render('Rendering');
 
   if (params.id) {
-    fetch.get(`${api.base}/${params.id}`)
-      .then(({ data }) => {
-        DOM.stage.innerHTML = 'Loading';
-        new Player(DOM.stage, data.output, params, data.mp3).play();
-      })
-      .catch(e => {
-        DOM.stage.innerHTML = e;
-      });
+    return fetch
+      .get(`${api.base}/${params.id}`)
+      .then(({ data: { output, mp3 } }) => {
+        render('Loading');
 
-  } else {
-    fetch.get(`${api.base}${api.endpoint}.json?${parameters.encode(params)}`)
-      .then(({ data }) => {
-        DOM.stage.innerHTML = 'Loading';
-        new Player(DOM.stage, data, params).play();
+        audiate(() =>
+          new Player({
+            el: DOM.stage,
+            frames: output,
+            params: params,
+            sound: mp3,
+          }).play()
+        );
       })
-      .catch(e => {
-        DOM.stage.innerHTML = e;
-      });
+      .catch(render);
   }
+
+  fetch
+    .get(`${api.base}${api.endpoint}.json?${parameters.encode(params)}`)
+    .then(({ data }) => {
+      render('Loading');
+
+      audiate(() =>
+        new Player({
+          el: DOM.stage,
+          frames: data,
+          params: params,
+        }).play()
+      );
+    })
+    .catch(render);
 };

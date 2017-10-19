@@ -5,7 +5,7 @@ import animate from './animate';
 import timeout from './timeout';
 
 export default class Player {
-  constructor(el, frames, params, sound = null) {
+  constructor({ el, frames, params, sound = null }) {
     this.el = el;
     this.frames = frames;
     this.playing = false;
