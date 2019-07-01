@@ -185,18 +185,18 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
-audiate@^0.0.2:
+audiate@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/audiate/-/audiate-0.0.2.tgz#a92699c9890c5975eb980598ca979ca834f9c91b"
 
-auto-reload-brunch@^2.7.1:
+auto-reload-brunch@2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/auto-reload-brunch/-/auto-reload-brunch-2.7.1.tgz#6924cec0ac61128d1cd1ff8f2f9ba0f6e7f01bfe"
   dependencies:
     anymatch "1.3.0"
     ws "~1.1.0"
 
-autoprefixer@^7.1.4:
+autoprefixer@7.1.5:
   version "7.1.5"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.1.5.tgz#d65d14b83c7cd1dd7bc801daa00557addf5a06b2"
   dependencies:
@@ -222,13 +222,13 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-axios@^0.14.0:
+axios@0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.14.0.tgz#40f24f2f4e913b9faa43d3a7b2e40ab8729afa90"
   dependencies:
     follow-redirects "0.0.7"
 
-babel-brunch@^6.1.1:
+babel-brunch@6.1.1:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/babel-brunch/-/babel-brunch-6.1.1.tgz#0b9d04c1df12f66e76a4dbdee34d8734876f1877"
   dependencies:
@@ -245,7 +245,7 @@ babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
     esutils "^2.0.2"
     js-tokens "^3.0.2"
 
-babel-core@^6.0.0, babel-core@^6.17.0, babel-core@^6.26.0:
+babel-core@6.26.0, babel-core@^6.0.0, babel-core@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.26.0.tgz#af32f78b31a6fcef119c87b0fd8d9753f03a0bb8"
   dependencies:
@@ -604,7 +604,7 @@ babel-plugin-transform-strict-mode@^6.24.1:
     babel-runtime "^6.22.0"
     babel-types "^6.24.1"
 
-babel-preset-env@^1.6.0:
+babel-preset-env@1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.6.1.tgz#a18b564cc9b9afdf4aae57ae3c1b0d99188e6f48"
   dependencies:
@@ -894,7 +894,7 @@ brunch-skeletons@~0.1.4:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/brunch-skeletons/-/brunch-skeletons-0.1.6.tgz#f15102a1b6babc964ce3d7e3c141dc0daa9d28ac"
 
-brunch@^2.10.10:
+brunch@2.10.12:
   version "2.10.12"
   resolved "https://registry.yarnpkg.com/brunch/-/brunch-2.10.12.tgz#3aa0c515c216beb2e53a0c35a30546d0a04cee50"
   dependencies:
@@ -1033,7 +1033,7 @@ circular-json@^0.3.1:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.3.tgz#815c99ea84f6809529d2f45791bdf82711352d66"
 
-clean-css-brunch@^2.10.0:
+clean-css-brunch@2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/clean-css-brunch/-/clean-css-brunch-2.10.0.tgz#6a151e6509589cd341dce04981a1c75062a22d18"
   dependencies:
@@ -1205,7 +1205,7 @@ crypto-browserify@~3.11.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
 
-css-brunch@^2.10.0:
+css-brunch@2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/css-brunch/-/css-brunch-2.10.0.tgz#b7c8e7208ea7a837c8608ea0e8e7b9a03c4a72f2"
   dependencies:
@@ -1382,7 +1382,7 @@ diffie-hellman@^5.0.0:
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
 
-digest-brunch@^1.6.0:
+digest-brunch@1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/digest-brunch/-/digest-brunch-1.6.0.tgz#0640ea9da90aeacd3c8b591c2458607823bb8abf"
   dependencies:
@@ -1467,7 +1467,7 @@ eslint-scope@^3.7.1:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint@^4.6.1:
+eslint@4.9.0:
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.9.0.tgz#76879d274068261b191fe0f2f56c74c2f4208e8b"
   dependencies:
@@ -2033,7 +2033,7 @@ hosted-git-info@~2.1.4:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.1.5.tgz#0ba81d90da2e25ab34a332e6ec77936e1598118b"
 
-howler@^2.0.0:
+howler@2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/howler/-/howler-2.0.5.tgz#3d7979f4af0bdc1bdfd09a9ab1a502fed38aecd9"
 
@@ -2294,7 +2294,7 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-javascript-brunch@^2.10.0:
+javascript-brunch@2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/javascript-brunch/-/javascript-brunch-2.10.0.tgz#826920035b4368f14a678254d15f83e2f4101172"
   dependencies:
@@ -2594,7 +2594,7 @@ mkdirp@0.5.1, "mkdirp@>=0.5 0", mkdirp@^0.5.1, mkdirp@~0.5, mkdirp@~0.5.0:
   dependencies:
     minimist "0.0.8"
 
-mocha@^3.5.1:
+mocha@3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/mocha/-/mocha-3.5.3.tgz#1e0480fe36d2da5858d1eb6acc38418b26eaa20d"
   dependencies:
@@ -2735,7 +2735,7 @@ oauth-sign@~0.8.1:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
-object-assign@^4.0.1, object-assign@^4.1.0:
+object-assign@4.1.1, object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
@@ -2888,7 +2888,7 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-postcss-brunch@^2.1.0:
+postcss-brunch@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/postcss-brunch/-/postcss-brunch-2.1.0.tgz#6db2b3629c7d6796fb707e04ebcfd3c41a0b8625"
   dependencies:
@@ -3050,7 +3050,7 @@ pushserve@^1:
     express "^4.0.0"
     serve-static "^1.10.0"
 
-qs@6.5.1, qs@^6.2.1, qs@^6.3.0:
+qs@6.5.1, qs@^6.3.0:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
@@ -3306,7 +3306,7 @@ rx-lite@*, rx-lite@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-4.0.8.tgz#0b1e11af8bc44836f04a6407e92da42467b79444"
 
-s3-cli@^0.13.0:
+s3-cli@0.13.0:
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/s3-cli/-/s3-cli-0.13.0.tgz#a47b800be76377952eb2cdb097dc655252a64aaa"
   dependencies:
@@ -3437,7 +3437,7 @@ should-util@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/should-util/-/should-util-1.0.0.tgz#c98cda374aa6b190df8ba87c9889c2b4db620063"
 
-should@^13.0.1:
+should@13.1.2:
   version "13.1.2"
   resolved "https://registry.yarnpkg.com/should/-/should-13.1.2.tgz#46e1335672d0bc5e16146b35947c995a3e5c7b15"
   dependencies:
@@ -3646,7 +3646,7 @@ text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
 
-textfit@^2.3.1:
+textfit@2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/textfit/-/textfit-2.3.1.tgz#5896db48ea70a767b97a73f28556406875ca208f"
 
@@ -3729,7 +3729,7 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-uglify-js-brunch@^2.10.0:
+uglify-js-brunch@2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/uglify-js-brunch/-/uglify-js-brunch-2.10.0.tgz#60cd0fb652887a02ce6abcd1588de55dcc346f05"
   dependencies:
