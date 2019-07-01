@@ -19,7 +19,7 @@
     "howler": "^2.0.0",
     "object-assign": "^4.1.0",
     "qs": "^6.2.1",
-    "queryparams": "0.0.7",
+    "queryparams": "0.1.0",
     "textfit": "^2.3.1"
   },
   "devDependencies": {
