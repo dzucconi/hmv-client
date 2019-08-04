@@ -1,15 +1,15 @@
 # hmv-client
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/dec6ab5a-7932-45c5-8e14-324c8d377bb0/deploy-status)](https://app.netlify.com/sites/damonzucconi-her-masters-voice/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dec6ab5a-7932-45c5-8e14-324c8d377bb0/deploy-status)](https://app.netlify.com/sites/damonzucconi-hmv/deploys)
 
 ## Meta
 
 - **State**: production
 - **Production**:
-  - **URL**: https://her-masters-voice.work.damonzucconi.com/
-  - **URL**: https://damonzucconi-her-masters-voice.netlify.com/
-- **Host**: https://app.netlify.com/sites/damonzucconi-her-masters-voice/overview
-- **Deploys**: Merged PRs to `dzucconi/example#master` are automatically deployed to production. [Manually trigger a deploy](https://app.netlify.com/sites/damonzucconi-her-masters-voice/deploys)
+  - **URL**: https://hmv.work.damonzucconi.com/
+  - **URL**: https://damonzucconi-hmv.netlify.com/
+- **Host**: https://app.netlify.com/sites/damonzucconi-hmv/overview
+- **Deploys**: Merged PRs to `dzucconi/example#master` are automatically deployed to production. [Manually trigger a deploy](https://app.netlify.com/sites/damonzucconi-hmv/deploys)
 
 ## Parameters
 
