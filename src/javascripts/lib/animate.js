@@ -1,4 +1,4 @@
-import step from './step';
+import step from "./step";
 
 export default frames => {
   const r = {
@@ -12,11 +12,9 @@ export default frames => {
       });
     },
 
-    step: () =>
-      frames[r.frame = step(r.frame, frames.length)],
+    step: () => frames[(r.frame = step(r.frame, frames.length))],
 
-    reset: () =>
-      r.frame = -1,
+    reset: () => (r.frame = -1)
   };
 
   return r;
