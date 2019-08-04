@@ -41,7 +41,7 @@ const init = () => {
     return fetch
       .get(`${API.base}/${params.id}`)
       .then(({ data: { output, mp3 } }) => {
-        DOM.root.innerHTML = "Loading";
+        render("Loading");
 
         audiate({
           message: "Ready. Click to begin playback.",
