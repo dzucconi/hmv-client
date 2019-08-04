@@ -17,8 +17,6 @@
     "audiate": "^0.1.2",
     "axios": "^0.19.0",
     "howler": "^2.1.2",
-    "object-assign": "^4.1.0",
-    "qs": "^6.7.0",
     "queryparams": "0.1.0",
     "textfit": "2.3.1"
   },
