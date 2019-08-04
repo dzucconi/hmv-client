@@ -13,11 +13,11 @@
 
 ## Parameters
 
-| Param    | Description                 | Type      | Default                            |
-| -------- | --------------------------- | --------- | ---------------------------------- |
-| `id`     | ID of persisted render      | `string`  | optional (overrides `text`)        |
-| `text`   | Text to speak               | `string`  | ""                                 |
-| `shape`  | Waveform                    | `enum`    | `"sine"|"square"|"triangle"|"saw"` |
-| `scalar` | Speed                       | `string`  | `1.0`                              |
-| `octave` | Octave                      | `number`  | `3`                                |
-| `fit`    | Fits text to browser window | `boolean` | `false`                            |
+| Param    | Description                 | Type      | Default                               |
+| -------- | --------------------------- | --------- | ------------------------------------- |
+| `id`     | ID of persisted render      | `string`  | optional (overrides `text`)           |
+| `text`   | Text to speak               | `string`  | ""                                    |
+| `shape`  | Waveform                    | `enum`    | `"sine"\|"square"\|"triangle"\|"saw"` |
+| `scalar` | Speed                       | `string`  | `1.0`                                 |
+| `octave` | Octave                      | `number`  | `3`                                   |
+| `fit`    | Fits text to browser window | `boolean` | `false`                               |
