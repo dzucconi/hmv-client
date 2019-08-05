@@ -41,6 +41,10 @@ body {
   padding: 0;
 }
 
+body {
+  line-height: 1.5;
+}
+
 form {
   text-align: center;
 }
@@ -67,6 +71,10 @@ input:focus {
   outline: none;
 }
 
+.Root {
+  padding: 1em;
+}
+
 .Root,
 .Stage {
   display: flex;
@@ -77,9 +85,8 @@ input:focus {
 }
 
 .Stage {
-  padding: 0.5em;
   font-size: 3.75rem;
-  letter-spacing: 0.0625em;
+  letter-spacing: 0.03125em;
   text-transform: uppercase;
 }
 
@@ -90,10 +97,13 @@ input:focus {
 
 .AudiateClick {
   background-color: black !important;
+  font-size: 2rem !important;
+  line-height: 1.33 !important;
+  text-align: center;
 }
 
-@media (max-width: 320px) {
-  body {
-    font-size: 40px;
+@media (max-width: 800px) {
+  html {
+    font-size: 10px;
   }
 }
