@@ -1,4 +1,4 @@
-import audiate from "audiate";
+import { block } from "audiate";
 import fetch from "axios";
 import parameters from "queryparams";
 
@@ -43,7 +43,7 @@ const init = () => {
       .then(({ data: { output, mp3 } }) => {
         render("Loading");
 
-        audiate({
+        block({
           message: "Ready. Click to begin playback.",
           onEnable: () =>
             new Player({
@@ -63,7 +63,7 @@ const init = () => {
     .then(({ data }) => {
       render("Loading");
 
-      audiate({
+      block({
         message: "Ready. Click to begin playback.",
         onEnable: () =>
           new Player({
