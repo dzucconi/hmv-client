@@ -14,7 +14,7 @@
     "lint": "eslint --ext .js ./src --fix"
   },
   "dependencies": {
-    "audiate": "1.1.0",
+    "audiate": "2.0.0",
     "axios": "0.19.0",
     "howler": "2.1.2",
     "queryparams": "0.1.0",
