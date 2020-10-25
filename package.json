@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "audiate": "2.0.0",
-    "axios": "0.20.0",
+    "axios": "0.21.0",
     "howler": "2.2.0",
     "queryparams": "0.1.0",
     "textfit": "2.4.0"
